@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F82" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Competition" representedClassName="Competition" syncable="YES" codeGenerationType="class">
+        <attribute name="categorie" optional="NO" attributeType="String"/>
+        <attribute name="equipe" optional="NO" attributeType="String"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="nom" optional="NO" attributeType="String"/>
+        <attribute name="saison" optional="NO" attributeType="String"/>
+        <relationship name="matchs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Match" inverseName="competition" inverseEntity="Match"/>
+    </entity>
+    <entity name="Convocation" representedClassName="Convocation" syncable="YES" codeGenerationType="class">
+        <attribute name="dateConvocation" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="statut" optional="NO" attributeType="String"/>
+        <relationship name="joueur" optional="NO" maxCount="1" deletionRule="Nullify" destinationEntity="Joueur" inverseName="convocations" inverseEntity="Joueur"/>
+        <relationship name="match" optional="NO" maxCount="1" deletionRule="Nullify" destinationEntity="Match" inverseName="convocations" inverseEntity="Match"/>
+    </entity>
+    <entity name="Joueur" representedClassName="Joueur" syncable="YES" codeGenerationType="class">
+        <attribute name="categorie" optional="NO" attributeType="String"/>
+        <attribute name="dateNaissance" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="nom" optional="NO" attributeType="String"/>
+        <attribute name="prenom" optional="NO" attributeType="String"/>
+        <relationship name="convocations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Convocation" inverseName="joueur" inverseEntity="Convocation"/>
+    </entity>
+    <entity name="Match" representedClassName="Match" syncable="YES" codeGenerationType="class">
+        <attribute name="categorie" optional="NO" attributeType="String"/>
+        <attribute name="date" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="equipe" optional="NO" attributeType="String"/>
+        <attribute name="heure" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="lieu" optional="NO" attributeType="String"/>
+        <attribute name="typeTerrain" optional="NO" attributeType="String"/>
+        <relationship name="competition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Competition" inverseName="matchs" inverseEntity="Competition"/>
+        <relationship name="convocations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Convocation" inverseName="match" inverseEntity="Convocation"/>
+    </entity>
+</model>

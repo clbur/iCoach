@@ -1,0 +1,20 @@
+[
+  {
+    "date": "15/02/2026",
+    "heure": "14:30",
+    "lieu": "Stade Municipal",
+    "typeTerrain": "Synthétique",
+    "categorie": "U15",
+    "equipe": "Équipe A",
+    "competition": "Championnat U15"
+  },
+  {
+    "date": "22/02/2026",
+    "heure": "16:00",
+    "lieu": "Terrain d'Honneur",
+    "typeTerrain": "Pelouse",
+    "categorie": "U16",
+    "equipe": "Équipe B",
+    "competition": "Coupe Régionale U16"
+  }
+]
